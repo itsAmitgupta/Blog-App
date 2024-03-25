@@ -17,7 +17,7 @@ export class Service{
         try {
            return await this.databases.getDocument(conf.appwriteDatabaseId,conf.appwriteCollectionId,slug)
         } catch (error) {
-            console.log("Appwrite Service :: getPost() ::",error);
+            console.log("Appwrite Service :: getPost :: error",error);
             return false
         }
     }
@@ -26,23 +26,23 @@ export class Service{
         try {
             return await this.databases.listDocuments(conf.appwriteDatabaseId,conf.appwriteCollectionId,queries)            
         } catch (error) {
-            console.log("Appwrite Service :: getPosts() ::",error);
+            console.log("Appwrite Service :: getPosts :: error",error);
             return false
         }
     }
 
-    async createPost({title,slug,content, featuredImage,status,userId}){
+    async createPost({title,slug,content,featuredImage,status,userid}){
         try {
            return await this.databases.createDocument(
             conf.appwriteDatabaseId,
             conf.appwriteCollectionId,
             slug,
             {
-                title,content,featuredImage,status,userId    
+                title,content,featuredImage,status,userid    
             }
            ) 
         } catch (error) {
-            console.log("Appwrite Service :: createPost() ::",error);
+            console.log("Appwrite Service :: createPost :: error",error);
             return false
         }
     }
@@ -56,7 +56,7 @@ export class Service{
                 {title,content,featuredImage,status}
             )            
         } catch (error) {
-            console.log("Appwrite Service :: updatePost() ::",error);
+            console.log("Appwrite Service :: updatePost :: error",error);
             return false
         }
     }
@@ -70,7 +70,7 @@ export class Service{
             )
             return true
         } catch (error) {
-            console.log("Appwrite Service :: deletePost() ::",error);
+            console.log("Appwrite Service :: deletePost :: error",error);
             return false
         }
     }
@@ -85,7 +85,7 @@ export class Service{
                 file
             )
         } catch (error) {
-            console.log("Appwrite Service :: uploadFile() ::",error);
+            console.log("Appwrite Service :: uploadFile :: error",error);
             return false;
         }
     }
@@ -97,7 +97,7 @@ export class Service{
                 fileId
             )
         } catch (error) {
-            console.log("Appwrite Service :: deleteFile() ::",error);
+            console.log("Appwrite Service :: deleteFile :: error",error);
             return false;
         }
     }
